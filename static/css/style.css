@@ -1,0 +1,12 @@
+.album-art {
+    width: 30%;
+    height: 30%;
+}
+
+body {
+    background: url('/static/img/IMG_0379.PNG') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
