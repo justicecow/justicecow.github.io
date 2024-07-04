@@ -9,3 +9,4 @@ window.onload = () => {
   const modal = new bootstrap.Modal('#courseModal');
   modal.show();
 }
+
