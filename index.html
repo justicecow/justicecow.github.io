@@ -5,90 +5,98 @@ description: Justice Cow is the musical alias of Jessica Kion — a multi-instru
 nav: home
 ---
 
-<section class="jc-hero">
-  <div class="container">
-    <div class="jc-hero-grid">
-      <div>
-        <p class="jc-hero-eyebrow">Latest album · out now</p>
-        <h1>my dad died</h1>
-        <p class="jc-hero-lede">A raw, full-band record about loss, memory, and the moments that come flooding back. Written and performed by Justice Cow (Jessica Kion) with Bradford Krieger, Ben Levin, Tyler Brasch, and Kit Orion.</p>
-        <div class="jc-cta-group">
-          <a class="btn-jc-accent" href="https://justicecow.bandcamp.com/album/my-dad-died" target="_blank" rel="noopener noreferrer">
-            <i class="bi bi-music-note-beamed"></i>
-            Listen on Bandcamp
-          </a>
-          <a class="btn-jc-outline" href="/videos/my-dad-died/">Watch the videos</a>
-        </div>
+<section class="hero">
+  <span class="sparkle sparkle-1 c-butter" aria-hidden="true">✦</span>
+  <span class="sparkle sparkle-2 c-sky" aria-hidden="true">✧</span>
+  <span class="sparkle sparkle-3 c-coral" aria-hidden="true">+</span>
+  <span class="sparkle sparkle-4 c-lime" aria-hidden="true">✦</span>
+  <span class="sparkle sparkle-6 c-butter" aria-hidden="true">✧</span>
+  <span class="sparkle sparkle-7 c-sky sparkle-px" aria-hidden="true"></span>
+  <span class="sparkle sparkle-8 c-coral" aria-hidden="true">★</span>
+  <span class="sparkle sparkle-10 c-plum" aria-hidden="true">+</span>
+  <div class="hero-grid">
+    <div>
+      <p class="eyebrow">New album · out now</p>
+      <h1>my dad<br>died</h1>
+      <p class="hero-lede">A raw, full-band record about loss, memory, and the moments that come flooding back. Written and performed by Justice Cow (Jessica Kion) with Bradford Krieger, Ben Levin, Tyler Brasch, and Kit Orion.</p>
+      <div class="cta-group">
+        <a class="btn btn-primary" href="https://justicecow.bandcamp.com/album/my-dad-died" target="_blank" rel="noopener noreferrer">♪ Listen on Bandcamp</a>
+        <a class="btn btn-outline" href="/videos/my-dad-died/">Watch the videos →</a>
       </div>
-      <div>
-        <img src="/static/img/my-dad-died.jpg" class="jc-hero-art" alt="my dad died — album cover" onerror="this.onerror=null;this.src='/static/img/2024_JessKionPortrait_018.jpg';">
-      </div>
+    </div>
+    <div class="hero-art-wrap">
+      <img src="/static/img/my-dad-died.jpg" class="hero-art" alt="my dad died — album cover">
+      <div class="hero-art-caption">LP · 11 tracks · 2023</div>
     </div>
   </div>
 </section>
 
-<section class="jc-section">
-  <div class="container">
-    <h2>Upcoming shows</h2>
-    <p class="jc-muted">Where to catch Justice Cow live.</p>
-    <iframe
-      class="jc-bandsintown-events"
-      src="https://www.bandsintown.com/artist/3153626/events?hide_tooltip=1&hide_icon=1&hide_title=0&playback=1&background_color=rgba(252,248,255,1)&text_color=rgba(42,27,61,1)&button_color=rgba(233,30,99,1)&link_color=rgba(106,27,154,1)&display_limit=8&display_past_dates=0&display_lineup=0"
-      width="100%"
-      height="340"
-      frameborder="0"
-      title="Upcoming Justice Cow shows"
-      loading="lazy"
-      referrerpolicy="no-referrer"></iframe>
-    <p class="mt-3"><a href="/shows/">See all shows &rarr;</a></p>
+<section class="shows">
+  <div class="shows-inner">
+    <div class="section-head">
+      <h2>Upcoming</h2>
+      <span class="meta">Where to catch Justice Cow live</span>
+    </div>
+    {% assign today = 'now' | date: '%Y-%m-%d' %}
+    {% assign upcoming = site.data.upcoming_shows | where_exp: 'show', 'show.date >= today' | sort: 'date' %}
+    {% if upcoming.size > 0 %}
+      <ul class="shows-list">
+        {% for show in upcoming limit: 6 %}
+          <li>
+            <span class="d">{{ show.date | date: '%b %d' }}</span>
+            <span class="v">{{ show.venue }}{% if show.detail %}<small>{{ show.detail }}</small>{% endif %}</span>
+            {% if show.tickets %}<a class="tix" href="{{ show.tickets }}" target="_blank" rel="noopener noreferrer">Tickets →</a>{% else %}<span class="tix" style="color:var(--jc-ink-soft);">—</span>{% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="shows-empty">No upcoming shows on the books right now. <a href="mailto:justicecowmusic@gmail.com">Book one</a> or check back soon.</p>
+    {% endif %}
+    <p class="see-all"><a href="/shows/">See all shows →</a></p>
   </div>
 </section>
 
-<section class="jc-section">
-  <div class="container">
-    <div class="jc-hero-grid">
-      <div>
-        <h2>About</h2>
-        <p>Justice Cow is the project of multi-instrumentalist and songwriter Jessica Kion — indie folk for fans of Wednesday, Big Thief, and Sufjan Stevens. Based in New England with roots at Berklee and a decade of touring across the US and abroad, she writes unflinching songs about grief, memory, and community, performed solo, as a duo, or with a full band.</p>
-        <p>A frequent collaborator across the New England scene, Kion also teaches songwriting at Brown University. She has just finished tracking her next full-length album, due later this year.</p>
-      </div>
-      <div>
-        <img src="/static/img/press/press-01-flowers.jpg" class="jc-hero-art" alt="Justice Cow portrait by Matt Freake">
-        <p class="jc-muted small mt-2">Photo by Matt Freake</p>
-      </div>
+<section class="about">
+  <span class="sparkle sparkle-1 c-plum" aria-hidden="true">✦</span>
+  <span class="sparkle sparkle-4 c-coral" aria-hidden="true">+</span>
+  <div class="about-inner">
+    <div>
+      <p class="eyebrow">About</p>
+      <h2>Indie folk<br>from New England.</h2>
+      <p>Justice Cow is the project of multi-instrumentalist and songwriter Jessica Kion — indie folk for fans of Wednesday, Big Thief, and Sufjan Stevens. Based in New England with roots at Berklee and a decade of touring across the US and abroad, she writes unflinching songs about grief, memory, and community.</p>
+      <p>A frequent collaborator across the New England scene, Kion also teaches songwriting at Brown University. She has just finished tracking her next full-length album, due later this year.</p>
+    </div>
+    <div>
+      <img class="about-portrait" src="/static/img/press/press-01-flowers.jpg" alt="Jessica Kion portrait, photo by Matt Freake">
     </div>
   </div>
 </section>
 
-<section class="jc-section">
-  <div class="container">
-    <img src="/static/img/live/live-03.jpg" class="jc-live-banner" alt="Justice Cow performing live, photo by Bryan Lasky" loading="lazy">
-    <p class="mt-3"><a href="/shows/">See upcoming shows &rarr;</a></p>
-  </div>
-</section>
-
-<section class="jc-section">
-  <div class="container">
-    <h2>How To Sufjan Stevens</h2>
-    <p class="jc-muted">Latest video — "To Know You Is To Love You"</p>
-    <div class="jc-video">
-      <iframe src="https://www.youtube.com/embed/XFqCj_s9Gyo" title="How To Sufjan Stevens" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="no-referrer"></iframe>
+<section class="video-sec">
+  <span class="sparkle sparkle-2 c-coral" aria-hidden="true">✦</span>
+  <span class="sparkle sparkle-4 c-butter" aria-hidden="true">✶</span>
+  <div class="video-inner">
+    <div class="section-head">
+      <h2>Latest video</h2>
+      <span class="meta">How To Sufjan Stevens — "To Know You Is To Love You"</span>
     </div>
-    <p class="mt-3"><a href="https://justicecow.bandcamp.com/track/to-know-you-is-to-love-you" target="_blank" rel="noopener noreferrer">Listen to "To Know You Is To Love You" on Bandcamp &rarr;</a></p>
+    <div class="video-frame">
+      <iframe src="https://www.youtube-nocookie.com/embed/XFqCj_s9Gyo" title="How To Sufjan Stevens — To Know You Is To Love You" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" referrerpolicy="no-referrer"></iframe>
+    </div>
   </div>
 </section>
 
-<section class="jc-section">
-  <div class="container">
-    <div class="jc-card">
-      <div class="jc-card-row">
-        <img src="/static/img/the-horror.jpg" class="jc-card-art" alt="The Horror Sits Better When It's Blurry — EP cover">
-        <div>
-          <p class="jc-hero-eyebrow">New EP · with Wrecking Glass</p>
-          <h3>The Horror Sits Better When It's Blurry</h3>
-          <p>Music written, performed, and arranged by Ryan Hare. Lyrics and vocals by Justice Cow. Co-produced, mixed, and mastered by Andrew Nault.</p>
-          <a class="btn-jc" href="https://justicecow.bandcamp.com/album/the-horror-sits-better-when-it-s-blurry" target="_blank" rel="noopener noreferrer">Buy EP</a>
-        </div>
+<section class="ep">
+  <span class="sparkle sparkle-2 c-lime" aria-hidden="true">✧</span>
+  <span class="sparkle sparkle-8 c-sky" aria-hidden="true">+</span>
+  <div class="ep-inner">
+    <div class="ep-card">
+      <img src="/static/img/the-horror.jpg" alt="The Horror Sits Better When It's Blurry — EP cover">
+      <div>
+        <p class="eyebrow">New EP · with Wrecking Glass</p>
+        <h3>The Horror Sits Better When It's Blurry</h3>
+        <p>Music written, performed, and arranged by Ryan Hare. Lyrics and vocals by Justice Cow. Co-produced, mixed, and mastered by Andrew Nault.</p>
+        <a class="btn btn-primary" href="https://justicecow.bandcamp.com/album/the-horror-sits-better-when-it-s-blurry" target="_blank" rel="noopener noreferrer">Buy EP</a>
       </div>
     </div>
   </div>

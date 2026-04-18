@@ -1,12 +1,12 @@
-<section class="jc-section jc-newsletter">
+<section class="nl jc-newsletter" aria-label="Newsletter signup">
   <div class="container">
-    <iframe
-      class="jc-bandsintown-signup"
-      src="https://www.bandsintown.com/artist/3153626/email_signup_form?headerTextColor=rgba(42,27,61,1)&backgroundColor=rgba(252,248,255,1)&ctaBackgroundColor=rgba(233,30,99,1)&title=Get My Milky&headerTextStyle=normal&headerText=Sign up for updates&font=Inter&ctaIcon=show&ctaBorderRadius=0px&ctaBorderWidth=2px&ctaBorderColor=rgba(42,27,61,1)&ctaFontColor=rgba(255,255,255,1)&alignment=center&emailInputField=show&ctaLabel=Subscribe&layout=wide&locale=en&ctaSize=large"
-      width="100%"
-      height="220"
-      title="Justice Cow newsletter signup"
-      loading="lazy"
-      referrerpolicy="no-referrer"></iframe>
+    <div>
+      <h2>Get my milky</h2>
+      <p>Occasional notes on new songs, tour dates, and whatever else the cow is up to.</p>
+    </div>
+    <form action="https://www.bandsintown.com/artist/3153626/subscribe" method="post" target="_blank" rel="noopener" onsubmit="event.preventDefault(); const btn = this.querySelector('button'); btn.textContent='Subscribed ♥'; btn.disabled = true; window.open(this.action + '?email=' + encodeURIComponent(this.querySelector('input').value), '_blank', 'noopener');">
+      <input type="email" name="email" placeholder="you@somewhere.com" required aria-label="Email address">
+      <button type="submit">Subscribe</button>
+    </form>
   </div>
 </section>
