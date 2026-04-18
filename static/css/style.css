@@ -1,25 +1,26 @@
 :root {
-  /* Palette — warm cream base; accents that complement auburn/orange hair:
-     coral orange, deep teal, rich plum, butter gold, forest green */
-  --jc-bg: #fff3e0;
-  --jc-bg-deep: #ffe4c4;
-  --jc-surface: #fffaf1;
+  /* Palette — 90s Memphis / mall-neon: cool off-white base, hot pink,
+     electric cyan, plum, lemon-lime yellow. Orange kept as one pop so
+     it still complements auburn hair. */
+  --jc-bg: #f5efff;
+  --jc-bg-deep: #e8d9ff;
+  --jc-surface: #fcf8ff;
   --jc-text: #2a1b3d;
   --jc-text-soft: #4a2b5d;
   --jc-muted: #6d5a7a;
   --jc-border: #2a1b3d;
-  --jc-border-soft: #d4a574;
+  --jc-border-soft: #c9b8e8;
 
   --jc-orange: #ff6b35;
-  --jc-orange-deep: #d84315;
-  --jc-coral: #f4845f;
-  --jc-teal: #1ba098;
-  --jc-deep-teal: #0d6e67;
+  --jc-orange-deep: #e91e63;
+  --jc-coral: #ff4081;
+  --jc-teal: #00c4c4;
+  --jc-deep-teal: #00838f;
   --jc-plum: #6a1b9a;
-  --jc-gold: #fb8500;
-  --jc-butter: #ffb703;
-  --jc-forest: #2d6a4f;
-  --jc-sage: #95c6b0;
+  --jc-gold: #ffd23f;
+  --jc-butter: #f9e900;
+  --jc-forest: #00b894;
+  --jc-sage: #9fe2bf;
 
   --jc-grad: linear-gradient(90deg, var(--jc-orange), var(--jc-gold), var(--jc-teal), var(--jc-plum));
   --jc-grad-warm: linear-gradient(135deg, var(--jc-orange) 0%, var(--jc-gold) 100%);
@@ -276,9 +277,10 @@ a:hover {
   letter-spacing: 0.25em;
   font-size: 1.15rem;
   font-weight: 400;
-  margin-bottom: 1rem;
-  color: var(--jc-teal);
-  display: inline-block;
+  margin-bottom: 1.5rem;
+  display: block;
+  width: fit-content;
+  max-width: 100%;
   background: var(--jc-text);
   color: var(--jc-butter);
   padding: 0.2rem 0.75rem;
