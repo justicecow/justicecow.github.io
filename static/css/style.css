@@ -282,6 +282,80 @@ a:hover {
   margin-bottom: 1rem;
 }
 
+/* EPK: quick facts grid in hero */
+.jc-quickfacts {
+  list-style: none;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0 0 0;
+  border: 3px solid var(--jc-text);
+  box-shadow: 6px 6px 0 var(--jc-plum);
+  background: var(--jc-surface);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem 1.5rem;
+  font-size: 0.95rem;
+}
+@media (min-width: 600px) {
+  .jc-quickfacts { grid-template-columns: 1fr 1fr; }
+}
+.jc-quickfacts li {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+.jc-quickfacts li strong {
+  font-family: var(--jc-pixel-small);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.75rem;
+  color: var(--jc-plum);
+  margin-bottom: 0.15rem;
+}
+
+/* EPK: booking-spec definition list */
+.jc-specs {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 0;
+}
+@media (min-width: 600px) {
+  .jc-specs { grid-template-columns: 180px 1fr; gap: 0.75rem 1.5rem; }
+}
+.jc-specs dt {
+  font-family: var(--jc-pixel-small);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.85rem;
+  color: var(--jc-plum);
+  margin: 0;
+}
+.jc-specs dd { margin: 0 0 0.5rem 0; }
+
+/* EPK: highlight pills */
+.jc-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.jc-highlights li {
+  padding: 0.5rem 0.9rem;
+  background: var(--jc-surface);
+  border: 2px solid var(--jc-text);
+  box-shadow: 3px 3px 0 var(--jc-teal);
+  font-size: 0.9rem;
+}
+
+/* EPK: download button row */
+.jc-downloads {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
 .jc-hero-eyebrow {
   font-family: var(--jc-pixel-small);
   text-transform: uppercase;
