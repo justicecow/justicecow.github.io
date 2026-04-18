@@ -1,13 +1,450 @@
-.album-art {
-    width: 30%;
-    height: 30%;
+:root {
+  --jc-bg: #faf8f5;
+  --jc-surface: #ffffff;
+  --jc-text: #1a1a1a;
+  --jc-muted: #5c5c5c;
+  --jc-border: #e6e1d7;
+  --jc-accent: #0f766e;
+  --jc-accent-hover: #0b5651;
+  --jc-warm: #c2410c;
+  --jc-serif: "Instrument Serif", Georgia, serif;
+  --jc-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --jc-radius: 6px;
+  --jc-shadow: 0 1px 3px rgba(26, 26, 26, 0.04), 0 4px 12px rgba(26, 26, 26, 0.04);
 }
 
-body {
-    background: url('/static/img/IMG_0379.PNG') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+html {
+  scroll-behavior: smooth;
 }
-  
+
+body.jc-body {
+  background: var(--jc-bg);
+  color: var(--jc-text);
+  font-family: var(--jc-sans);
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main#main {
+  min-height: 60vh;
+}
+
+h1, h2, h3, .jc-serif {
+  font-family: var(--jc-serif);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  color: var(--jc-text);
+}
+
+h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+h2 { font-size: clamp(1.75rem, 3vw, 2.5rem); margin-bottom: 1rem; }
+h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); margin-bottom: 0.75rem; }
+
+p { color: var(--jc-text); }
+.jc-muted { color: var(--jc-muted); }
+
+a {
+  color: var(--jc-accent);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+a:hover { color: var(--jc-accent-hover); text-decoration: underline; }
+
+/* Navbar */
+.jc-navbar {
+  background: rgba(250, 248, 245, 0.92);
+  backdrop-filter: saturate(180%) blur(10px);
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
+  border-bottom: 1px solid var(--jc-border);
+  padding: 0.75rem 0;
+}
+.jc-wordmark {
+  font-family: var(--jc-serif);
+  font-size: 1.5rem;
+  letter-spacing: 0;
+  color: var(--jc-text) !important;
+}
+.jc-navbar .nav-link {
+  color: var(--jc-text);
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.5rem 0.9rem;
+}
+.jc-navbar .nav-link:hover,
+.jc-navbar .nav-link.active {
+  color: var(--jc-accent);
+}
+.jc-navbar .dropdown-menu {
+  border: 1px solid var(--jc-border);
+  border-radius: var(--jc-radius);
+  box-shadow: var(--jc-shadow);
+  padding: 0.25rem;
+}
+.jc-navbar .dropdown-item {
+  border-radius: calc(var(--jc-radius) - 2px);
+  font-size: 0.95rem;
+  padding: 0.5rem 0.75rem;
+}
+.jc-navbar .dropdown-item:hover {
+  background: var(--jc-bg);
+  color: var(--jc-accent);
+}
+
+/* Sections */
+.jc-section {
+  padding: 5rem 0;
+  border-bottom: 1px solid var(--jc-border);
+}
+.jc-section:last-of-type { border-bottom: none; }
+.jc-section-narrow {
+  padding: 3rem 0;
+}
+
+/* Hero */
+.jc-hero {
+  padding: 6rem 0 5rem;
+}
+.jc-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .jc-hero-grid { grid-template-columns: 1.1fr 1fr; }
+}
+.jc-hero-art {
+  width: 100%;
+  border-radius: var(--jc-radius);
+  box-shadow: var(--jc-shadow);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+.jc-hero-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.8rem;
+  color: var(--jc-muted);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+.jc-hero h1 {
+  margin-bottom: 1.25rem;
+}
+.jc-hero-lede {
+  font-size: 1.15rem;
+  color: var(--jc-muted);
+  margin-bottom: 2rem;
+  max-width: 36rem;
+}
+
+/* Buttons */
+.btn-jc {
+  background: var(--jc-text);
+  color: var(--jc-bg);
+  border: 1px solid var(--jc-text);
+  border-radius: var(--jc-radius);
+  padding: 0.625rem 1.25rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.15s ease;
+}
+.btn-jc:hover {
+  background: var(--jc-accent);
+  border-color: var(--jc-accent);
+  color: #fff;
+  text-decoration: none;
+}
+.btn-jc-outline {
+  background: transparent;
+  color: var(--jc-text);
+  border: 1px solid var(--jc-text);
+  border-radius: var(--jc-radius);
+  padding: 0.625rem 1.25rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.15s ease;
+}
+.btn-jc-outline:hover {
+  background: var(--jc-text);
+  color: var(--jc-bg);
+  text-decoration: none;
+}
+.btn-jc-accent {
+  background: var(--jc-accent);
+  color: #fff;
+  border: 1px solid var(--jc-accent);
+  border-radius: var(--jc-radius);
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.btn-jc-accent:hover {
+  background: var(--jc-accent-hover);
+  border-color: var(--jc-accent-hover);
+  color: #fff;
+  text-decoration: none;
+}
+
+/* CTA group — buttons wrap cleanly on small screens */
+.jc-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* Release/video cards */
+.jc-card {
+  background: var(--jc-surface);
+  border: 1px solid var(--jc-border);
+  border-radius: var(--jc-radius);
+  padding: 2rem;
+  box-shadow: var(--jc-shadow);
+}
+.jc-card-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .jc-card-row { grid-template-columns: 1fr 1.5fr; }
+}
+.jc-card-art {
+  width: 100%;
+  border-radius: var(--jc-radius);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+/* Video embed */
+.jc-video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--jc-radius);
+  overflow: hidden;
+  background: #000;
+  box-shadow: var(--jc-shadow);
+}
+.jc-video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Shows list */
+.jc-shows-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.jc-show-item {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.25rem 1.5rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--jc-border);
+}
+@media (min-width: 576px) {
+  .jc-show-item {
+    grid-template-columns: 6rem 1fr auto;
+    align-items: center;
+  }
+}
+.jc-show-date {
+  font-family: var(--jc-serif);
+  font-size: 1.1rem;
+  color: var(--jc-accent);
+}
+.jc-show-venue {
+  font-weight: 500;
+}
+.jc-show-city {
+  color: var(--jc-muted);
+  font-size: 0.95rem;
+}
+
+/* Bandcamp embed */
+.jc-bandcamp {
+  border: 0;
+  width: 100%;
+  height: 470px;
+  max-width: 350px;
+  display: block;
+}
+
+/* Bandsintown events */
+.jc-bandsintown-events {
+  border: 0;
+  border-radius: var(--jc-radius);
+  background: var(--jc-bg);
+}
+
+/* Newsletter */
+.jc-newsletter {
+  background: var(--jc-surface);
+}
+.jc-bandsintown-signup {
+  border: 0;
+  border-radius: var(--jc-radius);
+  display: block;
+  margin: 0 auto;
+  max-width: 42rem;
+}
+
+/* Gallery (grid-gallery.min.css compat — keep minimal) */
+.jc-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+.jc-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--jc-radius);
+  aspect-ratio: 1 / 1;
+  transition: transform 0.2s ease;
+  cursor: zoom-in;
+}
+.jc-gallery img:hover { transform: scale(1.02); }
+
+/* Lyrics accordion */
+.accordion-button:not(.collapsed) {
+  background: var(--jc-bg);
+  color: var(--jc-accent);
+  box-shadow: none;
+}
+.accordion-button:focus {
+  box-shadow: 0 0 0 2px rgba(15, 118, 110, 0.2);
+  border-color: var(--jc-accent);
+}
+.accordion-item {
+  border-color: var(--jc-border);
+}
+
+/* Footer */
+.jc-footer {
+  background: var(--jc-text);
+  color: var(--jc-bg);
+  padding: 3rem 0 2rem;
+  margin-top: 4rem;
+}
+.jc-footer .jc-wordmark { color: var(--jc-bg) !important; }
+.jc-footer-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.jc-footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+.jc-footer-tag {
+  font-family: var(--jc-serif);
+  font-style: italic;
+  color: rgba(250, 248, 245, 0.65);
+  font-size: 0.95rem;
+}
+.jc-footer-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  padding: 0;
+  margin: 0;
+}
+.jc-footer-links a {
+  color: var(--jc-bg);
+  opacity: 0.85;
+  font-size: 0.95rem;
+}
+.jc-footer-links a:hover {
+  opacity: 1;
+  color: var(--jc-bg);
+}
+.jc-footer-copy {
+  color: rgba(250, 248, 245, 0.5);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* Legacy jumbotron shim — lets un-refactored pages inherit the new aesthetic without
+   touching their inner markup. Old pattern: .p-5.mb-4.bg-light.rounded-3 > .container-fluid.py-5. */
+.p-5.bg-light.rounded-3,
+.p-5.mb-4.bg-light.rounded-3 {
+  background: transparent !important;
+  padding: 4rem 0 !important;
+  margin-bottom: 0 !important;
+  border-radius: 0 !important;
+  border-bottom: 1px solid var(--jc-border);
+}
+.p-5.bg-light.rounded-3 > .container-fluid.py-5,
+.p-5.mb-4.bg-light.rounded-3 > .container-fluid.py-5 {
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+/* Old "display-5 fw-bold" h1 inside shimmed pages */
+.p-5.bg-light.rounded-3 .display-5,
+.p-5.mb-4.bg-light.rounded-3 .display-5 {
+  font-family: var(--jc-serif);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+.ratio.ratio-16x9 {
+  border-radius: var(--jc-radius);
+  overflow: hidden;
+  box-shadow: var(--jc-shadow);
+  margin-bottom: 1.5rem;
+}
+.iframe-video { border: 0; }
+table.table {
+  background: transparent;
+}
+pre {
+  font-family: var(--jc-sans);
+  color: var(--jc-text);
+  background: var(--jc-bg);
+  padding: 1.25rem;
+  border-radius: var(--jc-radius);
+  border: 1px solid var(--jc-border);
+  white-space: pre-wrap;
+  font-size: 0.95rem;
+}
+.img-fluid {
+  border-radius: var(--jc-radius);
+}
+.album-art,
+.img-thumbnail.album-art {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  border-radius: var(--jc-radius);
+  border: 1px solid var(--jc-border);
+  padding: 0.25rem;
+  background: var(--jc-surface);
+}
+
+/* Utility */
+.jc-stack > * + * { margin-top: 1rem; }
+.jc-stack-sm > * + * { margin-top: 0.5rem; }
+.jc-stack-lg > * + * { margin-top: 1.5rem; }

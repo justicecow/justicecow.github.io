@@ -1,0 +1,22 @@
+title: Justice Cow
+description: The musical world of Justice Cow — music, shows, videos, and lyrics.
+url: https://www.justicecow.com
+baseurl: ""
+
+permalink: pretty
+
+plugins:
+  - jekyll-sitemap
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .bundle
+
+keep_files:
+  - static
+
+sass:
+  style: compressed
