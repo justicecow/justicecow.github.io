@@ -218,10 +218,12 @@ nav.jc-navbar {
   font-size: 26px;
   font-weight: 700;
   letter-spacing: 0.02em;
-  color: hsl(calc(var(--nav-hue, 350) + 180), 85%, 28%) !important;
+  color: var(--jc-ink) !important;
   text-decoration: none;
-  text-shadow: 3px 3px 0 #fff;
-  transition: color 0.6s linear, text-shadow 0.6s linear;
+  text-shadow:
+    3px 3px 0 hsl(calc(var(--nav-hue, 350) + 120), 85%, 60%),
+    6px 6px 0 hsl(calc(var(--nav-hue, 350) + 240), 85%, 60%);
+  transition: text-shadow 0.6s linear;
 }
 .jc-wordmark .star,
 .jc-navbar .navbar-brand .star {
