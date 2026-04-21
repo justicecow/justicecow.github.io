@@ -34,7 +34,7 @@
       { transform: 'translate(-50%,-50%) rotate(' + rotDeg + 'deg) translateX(' + dist + 'px)', opacity: 0 }
     ];
     var anim = star.animate(keyframes, {
-      duration: 850 + Math.random() * 250,
+      duration: 1500 + Math.random() * 400,
       easing: 'cubic-bezier(.22,.61,.36,1)'
     });
     anim.onfinish = function () { star.remove(); };

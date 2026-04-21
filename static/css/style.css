@@ -973,17 +973,17 @@ nav.jc-navbar {
 /* Pixelated shooting star — spawned when a .sparkle is clicked */
 .jc-shooting-star {
   position: fixed;
-  width: 6px;
-  height: 6px;
+  width: 10px;
+  height: 10px;
   background: var(--sc, #fff);
   pointer-events: none;
   z-index: 9999;
   image-rendering: pixelated;
   box-shadow:
-    -6px  0 0 var(--sc, #fff),
-    -12px 0 0 var(--sc, #fff),
-    -20px 0 0 color-mix(in srgb, var(--sc, #fff) 60%, transparent),
-    -28px 0 0 color-mix(in srgb, var(--sc, #fff) 30%, transparent);
+    -10px 0 0 var(--sc, #fff),
+    -22px 0 0 var(--sc, #fff),
+    -34px 0 0 color-mix(in srgb, var(--sc, #fff) 60%, transparent),
+    -46px 0 0 color-mix(in srgb, var(--sc, #fff) 30%, transparent);
   will-change: transform, opacity;
 }
 
