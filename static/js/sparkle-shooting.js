@@ -29,9 +29,10 @@
     document.body.appendChild(star);
 
     var keyframes = [
-      { transform: 'translate(-50%,-50%) rotate(' + rotDeg + 'deg) translateX(0) scale(0.25)', opacity: 0.4 },
-      { transform: 'translate(-50%,-50%) rotate(' + rotDeg + 'deg) translateX(' + (dist * 0.55) + 'px) scale(1)', opacity: 1, offset: 0.65 },
-      { transform: 'translate(-50%,-50%) rotate(' + rotDeg + 'deg) translateX(' + dist + 'px) scale(4)', opacity: 0 }
+      { transform: 'translate(-50%,-50%) rotate(' + rotDeg + 'deg) translateX(0) scale(0.2)', opacity: 0.5 },
+      { transform: 'translate(-50%,-50%) rotate(' + rotDeg + 'deg) translateX(' + (dist * 0.35) + 'px) scale(1.2)', opacity: 1, offset: 0.4 },
+      { transform: 'translate(-50%,-50%) rotate(' + rotDeg + 'deg) translateX(' + (dist * 0.75) + 'px) scale(4)', opacity: 1, offset: 0.8 },
+      { transform: 'translate(-50%,-50%) rotate(' + rotDeg + 'deg) translateX(' + dist + 'px) scale(9)', opacity: 0 }
     ];
     var anim = star.animate(keyframes, {
       duration: 3500 + Math.random() * 800,
