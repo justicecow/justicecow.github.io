@@ -943,7 +943,8 @@ nav.jc-navbar {
   font-family: var(--jc-display);
   font-size: 28px;
   line-height: 1;
-  pointer-events: none;
+  pointer-events: auto;
+  cursor: pointer;
   user-select: none;
   animation: jc-twinkle 2.4s steps(4) infinite, jc-float 6s ease-in-out infinite;
   text-shadow: 2px 2px 0 rgba(30, 21, 48, 0.25);
@@ -968,6 +969,23 @@ nav.jc-navbar {
 .sparkle.c-sky    { color: var(--jc-sky);    --sp-c: var(--jc-sky);    }
 .sparkle.c-plum   { color: var(--jc-plum);   --sp-c: var(--jc-plum);   }
 .sparkle.c-ink    { color: var(--jc-ink);    --sp-c: var(--jc-ink);    }
+
+/* Pixelated shooting star — spawned when a .sparkle is clicked */
+.jc-shooting-star {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: var(--sc, #fff);
+  pointer-events: none;
+  z-index: 9999;
+  image-rendering: pixelated;
+  box-shadow:
+    -6px  0 0 var(--sc, #fff),
+    -12px 0 0 var(--sc, #fff),
+    -20px 0 0 color-mix(in srgb, var(--sc, #fff) 60%, transparent),
+    -28px 0 0 color-mix(in srgb, var(--sc, #fff) 30%, transparent);
+  will-change: transform, opacity;
+}
 
 .sparkle-1  { top: 6%;   left: 5%;   font-size: 30px; animation-delay: 0s,   0s;   }
 .sparkle-2  { top: 14%;  right: 8%;  font-size: 22px; animation-delay: 0.6s, 1s;   }
