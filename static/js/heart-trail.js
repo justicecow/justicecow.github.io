@@ -3,11 +3,13 @@
 (function () {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  var N = 24;                // points around the heart
+  var N = 20;                // points around the heart
   var palette = ['var(--jc-coral)', 'var(--jc-butter)', 'var(--jc-lime)', 'var(--jc-sky)', 'var(--jc-plum)'];
   var pills = [];
   var step = 0;
   var active = false;
+  var cachedPoints = null;
+  var cachedKey = '';
 
   // Heart curve (parametric). t in [0, 2π]. Returns {x, y} in unit-ish range.
   function heartAt(t) {
@@ -21,16 +23,59 @@
   }
 
   function scale() {
-    // Heart fits ~32 units wide × 30 tall. Target ~45% of min(vw,vh).
-    var target = Math.min(window.innerWidth, window.innerHeight) * 0.45;
+    // Heart fits ~32 units wide × 30 tall. Target ~60% of min(vw,vh).
+    var target = Math.min(window.innerWidth, window.innerHeight) * 0.6;
     return target / 32;
   }
 
+  // Arc-length parameterization: sample the curve densely, compute cumulative
+  // arc length, then pick N points equally spaced along that length. This
+  // prevents bunching at the pointy top bumps and spreading at the bottom.
+  function evenlySpacedPoints() {
+    var key = N + ':' + window.innerWidth + 'x' + window.innerHeight;
+    if (cachedPoints && cachedKey === key) return cachedPoints;
+
+    var SAMPLES = 600;
+    var pts = [];
+    var lens = [0];
+    var last = heartAt(-Math.PI / 2);
+    pts.push(last);
+    for (var i = 1; i <= SAMPLES; i++) {
+      var t = -Math.PI / 2 + (i / SAMPLES) * Math.PI * 2;
+      var p = heartAt(t);
+      var dx = p.x - last.x;
+      var dy = p.y - last.y;
+      lens.push(lens[i - 1] + Math.sqrt(dx * dx + dy * dy));
+      pts.push(p);
+      last = p;
+    }
+    var total = lens[SAMPLES];
+    var out = [];
+    for (var k = 0; k < N; k++) {
+      var target = (k / N) * total;
+      // Binary search
+      var lo = 0, hi = SAMPLES;
+      while (lo < hi) {
+        var mid = (lo + hi) >> 1;
+        if (lens[mid] < target) lo = mid + 1; else hi = mid;
+      }
+      var idx = Math.max(0, lo - 1);
+      var segLen = lens[idx + 1] - lens[idx] || 1;
+      var f = (target - lens[idx]) / segLen;
+      out.push({
+        x: pts[idx].x + (pts[idx + 1].x - pts[idx].x) * f,
+        y: pts[idx].y + (pts[idx + 1].y - pts[idx].y) * f
+      });
+    }
+    cachedPoints = out;
+    cachedKey = key;
+    return out;
+  }
+
   function spawnPill(index) {
-    // index 0..N-1 is the NEXT pill to place.
-    // Space points by starting at the top dip and going around.
-    var t = (index / N) * Math.PI * 2 - Math.PI / 2;
-    var p = heartAt(t);
+    // index 0..N-1 is the NEXT pill to place, evenly spaced along arc length.
+    var pts = evenlySpacedPoints();
+    var p = pts[index];
     var s = scale();
     var c = viewportCenter();
     var x = c.cx + p.x * s;
