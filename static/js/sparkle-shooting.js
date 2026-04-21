@@ -29,13 +29,13 @@
     document.body.appendChild(star);
 
     var keyframes = [
-      { transform: 'translate(-50%,-50%) rotate(' + rotDeg + 'deg) translateX(0)', opacity: 1 },
-      { transform: 'translate(-50%,-50%) rotate(' + rotDeg + 'deg) translateX(' + (dist * 0.9) + 'px)', opacity: 1, offset: 0.8 },
-      { transform: 'translate(-50%,-50%) rotate(' + rotDeg + 'deg) translateX(' + dist + 'px)', opacity: 0 }
+      { transform: 'translate(-50%,-50%) rotate(' + rotDeg + 'deg) translateX(0) scale(0.25)', opacity: 0.4 },
+      { transform: 'translate(-50%,-50%) rotate(' + rotDeg + 'deg) translateX(' + (dist * 0.55) + 'px) scale(1)', opacity: 1, offset: 0.65 },
+      { transform: 'translate(-50%,-50%) rotate(' + rotDeg + 'deg) translateX(' + dist + 'px) scale(4)', opacity: 0 }
     ];
     var anim = star.animate(keyframes, {
       duration: 3500 + Math.random() * 800,
-      easing: 'cubic-bezier(.22,.61,.36,1)'
+      easing: 'cubic-bezier(.55, 0, .85, .25)'
     });
     anim.onfinish = function () { star.remove(); };
   }
