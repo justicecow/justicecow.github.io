@@ -1095,3 +1095,47 @@ nav.jc-navbar {
   html { scroll-behavior: auto; }
   .sparkle { display: none; }
 }
+
+/* ---- "Even more..." heart easter egg ---- */
+.jc-heart-pill {
+  position: fixed;
+  transform: translate(-50%, -50%);
+  font-family: var(--jc-display);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--jc-ink);
+  background: var(--hc, var(--jc-butter));
+  border: 2.5px solid var(--jc-ink);
+  box-shadow: 3px 3px 0 var(--jc-ink);
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  z-index: 9998;
+  image-rendering: pixelated;
+  transition: transform 0.12s steps(2), box-shadow 0.12s steps(2);
+}
+.jc-heart-pill:hover:not(.placed) {
+  transform: translate(calc(-50% + 2px), calc(-50% + 2px));
+  box-shadow: 1px 1px 0 var(--jc-ink);
+}
+.jc-heart-pill.placed {
+  cursor: default;
+  pointer-events: none;
+  filter: saturate(1.2);
+}
+
+.jc-confetti {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9997;
+  overflow: hidden;
+}
+.jc-confetti-bit {
+  position: absolute;
+  top: -20px;
+  background: var(--cc, var(--jc-coral));
+  image-rendering: pixelated;
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.15);
+}
