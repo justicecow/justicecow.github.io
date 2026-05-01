@@ -19,13 +19,13 @@ sitemap: false
     </marquee>
 
     <h1 class="y2k-title">
-      <span class="y2k-title-glow">~~ Jess'</span>
-      <span class="y2k-title-rainbow">DOG</span>
+      <span class="y2k-title-glow">~~</span>
+      <span class="y2k-title-rainbow">HINENI</span>
       <span class="y2k-title-glow">~~</span>
     </h1>
 
     <p class="y2k-sub">
-      ✿ ✿ ✿ &nbsp;100% Certified Good Doggy &nbsp; ✿ ✿ ✿
+      ✿ ✿ ✿ &nbsp;100% Certified Good Boi &nbsp; ✿ ✿ ✿
     </p>
 
     <div class="y2k-frame">
@@ -47,15 +47,51 @@ sitemap: false
       <li>★ FAVORITE BAND: Justice Cow (obvi)</li>
     </ul>
 
+    <div class="y2k-guestbook">
+      <h2 class="y2k-gb-title">≪ ☆ &nbsp;SIGN&nbsp;MY&nbsp;GUESTBOOK&nbsp; ☆ ≫</h2>
+      <p class="y2k-gb-sub">leave Hineni a note</p>
+      <div class="giscus"></div>
+    </div>
+
     <p class="y2k-back">
       <a href="/" class="y2k-link">« back to the music site</a>
     </p>
 
     <p class="y2k-counter">
-      visitors: <span class="y2k-counter-num">000{{ 'now' | date: '%S' }}042</span>
+      visitors: <span class="y2k-counter-num">00000000</span>
     </p>
   </div>
 </div>
+
+<script>
+  // Real visit counter via abacus.jasoncameron.dev. Each real hit = +1,
+  // displayed value = hits × 3579 (zero-padded to 8 digits).
+  fetch('https://abacus.jasoncameron.dev/hit/justicecow.com/peep')
+    .then(function (r) { return r.json(); })
+    .then(function (d) {
+      var n = (d.value * 3579).toString();
+      var padded = ('00000000' + n).slice(-Math.max(8, n.length));
+      var el = document.querySelector('.y2k-counter-num');
+      if (el) el.textContent = padded;
+    })
+    .catch(function () { /* offline → leave the placeholder */ });
+</script>
+
+<script src="https://giscus.app/client.js"
+        data-repo="justicecow/justicecow.github.io"
+        data-repo-id="REPLACE_WITH_REPO_ID"
+        data-category="Guestbook"
+        data-category-id="REPLACE_WITH_CATEGORY_ID"
+        data-mapping="specific"
+        data-term="peep-guestbook"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light_high_contrast"
+        data-lang="en"
+        crossorigin="anonymous"
+        async></script>
 
 <style>
   body { margin: 0; }
@@ -252,6 +288,33 @@ sitemap: false
   .y2k-link:hover {
     background: #ffff00;
     border-style: inset;
+  }
+
+  .y2k-guestbook {
+    margin: 28px 0 8px;
+    padding: 16px 12px;
+    background: #fff;
+    border: 4px ridge #ff00cc;
+    box-shadow: 0 0 0 3px #00ffff, 0 0 0 6px #ffff00;
+  }
+  .y2k-gb-title {
+    text-align: center;
+    font-family: "Comic Sans MS", "Marker Felt", cursive;
+    font-size: 22px;
+    color: #8000ff;
+    text-shadow: 2px 2px 0 #ffff00;
+    margin: 0 0 4px;
+  }
+  .y2k-gb-sub {
+    text-align: center;
+    font-size: 13px;
+    color: #000;
+    margin: 0 0 14px;
+  }
+  .y2k-guestbook .giscus,
+  .y2k-guestbook .giscus-frame {
+    width: 100%;
+    background: #fff;
   }
 
   .y2k-counter {
