@@ -51,21 +51,19 @@ nav: home
       <h2>Upcoming</h2>
       <span class="meta">Where to catch Justice Cow live</span>
     </div>
-    {% assign today = 'now' | date: '%Y-%m-%d' %}
-    {% assign upcoming = site.data.upcoming_shows | where_exp: 'show', 'show.date >= today' | sort: 'date' %}
-    {% if upcoming.size > 0 %}
-      <ul class="shows-list">
-        {% for show in upcoming limit: 6 %}
-          <li>
-            <span class="d">{{ show.date | date: '%b %d' }}</span>
-            <span class="v">{{ show.venue }}{% if show.detail %}<small>{{ show.detail }}</small>{% endif %}</span>
-            {% if show.tickets %}<a class="tix" href="{{ show.tickets }}" target="_blank" rel="noopener noreferrer">Tickets →</a>{% else %}<span class="tix" style="color:var(--jc-ink-soft);">—</span>{% endif %}
-          </li>
-        {% endfor %}
-      </ul>
-    {% else %}
-      <p class="shows-empty">No upcoming shows on the books right now. <a href="mailto:justicecowmusic@gmail.com">Book one</a> or check back soon.</p>
-    {% endif %}
+    <a class="bit-widget-initializer"
+       data-artist-name="id_3153626"
+       data-display-limit="5"
+       data-display-past-dates="false"
+       data-background-color="rgba(241,223,220,1)"
+       data-text-color="rgba(42,27,61,1)"
+       data-link-text-color="rgba(138,31,207,1)"
+       data-link-color="rgba(255,69,96,1)"
+       data-display-local-dates="false"
+       data-display-lineup="false"
+       data-display-play-my-city="false"
+       data-separator-color="rgba(42,27,61,0.2)"></a>
+    <script src="https://widgetv3.bandsintown.com/main.min.js" async></script>
     <p class="see-all"><a href="/shows/">See all shows →</a></p>
   </div>
 </section>
