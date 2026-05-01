@@ -794,17 +794,18 @@ nav.jc-navbar {
 .jc-carousel {
   border: 2px solid var(--jc-rule);
   box-shadow: 8px 8px 0 var(--jc-plum);
-  background: #000;
+  background: var(--jc-paper);
   margin-bottom: 2rem;
 }
 .jc-carousel .carousel-inner {
-  aspect-ratio: 4 / 3;
-  background: #000;
+  aspect-ratio: 3 / 2;
+  background: var(--jc-paper);
 }
 .jc-carousel-img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center;
   display: block;
 }
 .jc-carousel .carousel-control-prev-icon,
