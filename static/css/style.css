@@ -1184,3 +1184,13 @@ nav.jc-navbar {
   border-top: 1.5px dashed rgba(30, 21, 48, 0.25);
 }
 .jc-release__link:hover { color: var(--jc-coral); }
+
+/* Eyes emoji link → /peep/ */
+.jc-peep {
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+.jc-peep:hover {
+  transform: scale(1.4) rotate(-8deg);
+}

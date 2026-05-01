@@ -1,0 +1,275 @@
+---
+layout: bare
+title: 👀 Peep this dog 👀
+permalink: /peep/
+description: A very good dog.
+sitemap: false
+---
+
+<div class="y2k-bg">
+  <div class="y2k-stars" aria-hidden="true">
+    <span>✦</span><span>✧</span><span>★</span><span>✦</span><span>✶</span>
+    <span>✧</span><span>★</span><span>✦</span><span>✶</span><span>✧</span>
+    <span>★</span><span>✦</span><span>✶</span><span>✧</span><span>★</span>
+  </div>
+
+  <div class="y2k-page">
+    <marquee class="y2k-marquee" scrollamount="8">
+      🐾 ★彡 WELCOME 2 MY DOG'S WEBSITE ★彡 🐾 BEST VIEWED IN NETSCAPE NAVIGATOR 4.0 OR HIGHER 🌐 SIGN MY GUESTBOOK 📖 ・゚: *✧･ﾟ:* PUPS 4 LIFE *:･ﾟ✧*:･ﾟ
+    </marquee>
+
+    <h1 class="y2k-title">
+      <span class="y2k-title-glow">~~ Jess'</span>
+      <span class="y2k-title-rainbow">DOG</span>
+      <span class="y2k-title-glow">~~</span>
+    </h1>
+
+    <p class="y2k-sub">
+      ✿ ✿ ✿ &nbsp;100% Certified Good Doggy &nbsp; ✿ ✿ ✿
+    </p>
+
+    <div class="y2k-frame">
+      <div class="y2k-frame-corner tl">★</div>
+      <div class="y2k-frame-corner tr">★</div>
+      <div class="y2k-frame-corner bl">★</div>
+      <div class="y2k-frame-corner br">★</div>
+      <img src="/static/img/jess-dog.jpg" alt="Jess's dog wrapped in a blue blanket, on a colorful rug" class="y2k-img">
+    </div>
+
+    <p class="y2k-caption">
+      <span class="y2k-blink">●</span> &nbsp;LIVE FROM THE LIVING ROOM RUG&nbsp; <span class="y2k-blink">●</span>
+    </p>
+
+    <ul class="y2k-stats">
+      <li>★ STATUS: chillin'</li>
+      <li>★ MOOD: contemplative</li>
+      <li>★ ACHIEVEMENTS: tongue out (slightly)</li>
+      <li>★ FAVORITE BAND: Justice Cow (obvi)</li>
+    </ul>
+
+    <p class="y2k-back">
+      <a href="/" class="y2k-link">« back to the music site</a>
+    </p>
+
+    <p class="y2k-counter">
+      visitors: <span class="y2k-counter-num">000{{ 'now' | date: '%S' }}042</span>
+    </p>
+  </div>
+</div>
+
+<style>
+  body { margin: 0; }
+  .y2k-bg {
+    min-height: 100vh;
+    background:
+      repeating-linear-gradient(45deg, #ff00cc 0 24px, #00ffff 24px 48px, #ffff00 48px 72px, #00ff00 72px 96px),
+      #000;
+    padding: 24px 12px 60px;
+    font-family: "Comic Sans MS", "Marker Felt", cursive;
+    color: #000;
+    position: relative;
+    overflow: hidden;
+  }
+  .y2k-stars {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .y2k-stars span {
+    position: absolute;
+    color: #fff;
+    font-size: 22px;
+    text-shadow: 2px 2px 0 #ff00cc;
+    animation: y2kSpin 4s linear infinite;
+  }
+  .y2k-stars span:nth-child(1)  { top: 5%;  left: 8%;  animation-delay: 0s; }
+  .y2k-stars span:nth-child(2)  { top: 12%; left: 88%; animation-delay: -1s; }
+  .y2k-stars span:nth-child(3)  { top: 22%; left: 3%;  animation-delay: -2s; font-size: 32px; color: #ffff00; }
+  .y2k-stars span:nth-child(4)  { top: 30%; left: 92%; animation-delay: -0.5s; }
+  .y2k-stars span:nth-child(5)  { top: 40%; left: 6%;  animation-delay: -1.5s; }
+  .y2k-stars span:nth-child(6)  { top: 50%; left: 95%; animation-delay: -2.5s; }
+  .y2k-stars span:nth-child(7)  { top: 60%; left: 2%;  animation-delay: -3s; font-size: 28px; color: #00ffff; }
+  .y2k-stars span:nth-child(8)  { top: 70%; left: 90%; animation-delay: -3.5s; }
+  .y2k-stars span:nth-child(9)  { top: 78%; left: 5%;  animation-delay: -1.2s; }
+  .y2k-stars span:nth-child(10) { top: 85%; left: 93%; animation-delay: -2.8s; font-size: 30px; color: #ff00cc; }
+  .y2k-stars span:nth-child(11) { top: 92%; left: 10%; animation-delay: -0.8s; }
+  .y2k-stars span:nth-child(12) { top: 15%; left: 50%; animation-delay: -2.2s; }
+  .y2k-stars span:nth-child(13) { top: 95%; left: 50%; animation-delay: -3.2s; }
+  .y2k-stars span:nth-child(14) { top: 8%;  left: 30%; animation-delay: -1.7s; }
+  .y2k-stars span:nth-child(15) { top: 8%;  left: 70%; animation-delay: -0.3s; }
+  @keyframes y2kSpin {
+    from { transform: rotate(0deg) scale(1); }
+    50%  { transform: rotate(180deg) scale(1.4); }
+    to   { transform: rotate(360deg) scale(1); }
+  }
+
+  .y2k-page {
+    max-width: 720px;
+    margin: 0 auto;
+    background: #fff8;
+    backdrop-filter: blur(4px);
+    border: 6px ridge #ff00cc;
+    box-shadow: 0 0 0 4px #00ffff, 0 0 0 8px #ffff00, 0 0 40px rgba(255,0,204,0.6);
+    padding: 24px 18px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .y2k-marquee {
+    background: linear-gradient(90deg, #ff00cc, #00ffff, #ffff00, #00ff00, #ff00cc);
+    background-size: 200% 100%;
+    color: #000;
+    font-weight: 900;
+    padding: 8px 0;
+    border: 3px outset #ff00cc;
+    font-size: 16px;
+    letter-spacing: 0.04em;
+    margin-bottom: 24px;
+    animation: y2kSlide 6s linear infinite;
+  }
+  @keyframes y2kSlide {
+    from { background-position: 0% 0; }
+    to   { background-position: 200% 0; }
+  }
+
+  .y2k-title {
+    text-align: center;
+    font-family: "Comic Sans MS", "Marker Felt", cursive;
+    font-size: clamp(34px, 8vw, 60px);
+    font-weight: 900;
+    margin: 8px 0 4px;
+    line-height: 1;
+    text-shadow: 4px 4px 0 #000;
+  }
+  .y2k-title-glow {
+    color: #ff00cc;
+    text-shadow:
+      2px 2px 0 #00ffff,
+      4px 4px 0 #000,
+      -2px -2px 0 #ffff00;
+  }
+  .y2k-title-rainbow {
+    background: linear-gradient(90deg, #ff0000, #ff8000, #ffff00, #00ff00, #00ffff, #0080ff, #8000ff, #ff00cc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-stroke: 2px #000;
+    padding: 0 6px;
+    animation: y2kRainbow 3s linear infinite;
+    background-size: 200% 100%;
+    display: inline-block;
+  }
+  @keyframes y2kRainbow {
+    from { background-position: 0% 0; }
+    to   { background-position: 200% 0; }
+  }
+
+  .y2k-sub {
+    text-align: center;
+    font-size: 18px;
+    margin: 0 0 20px;
+    color: #8000ff;
+    font-weight: 700;
+  }
+
+  .y2k-frame {
+    position: relative;
+    margin: 0 auto;
+    max-width: 480px;
+    padding: 14px;
+    background:
+      repeating-linear-gradient(45deg, #ff00cc 0 8px, #00ffff 8px 16px),
+      #fff;
+    border: 6px double #000;
+    box-shadow:
+      0 0 0 4px #ffff00,
+      0 0 0 8px #000,
+      8px 8px 0 #00ff00,
+      14px 14px 0 #ff00cc;
+  }
+  .y2k-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 4px ridge #ffff00;
+    image-rendering: auto;
+  }
+  .y2k-frame-corner {
+    position: absolute;
+    color: #ffff00;
+    font-size: 32px;
+    text-shadow: 2px 2px 0 #000, -2px -2px 0 #ff00cc;
+    animation: y2kSpin 3s linear infinite;
+    z-index: 2;
+  }
+  .y2k-frame-corner.tl { top: -10px; left: -10px; }
+  .y2k-frame-corner.tr { top: -10px; right: -10px; animation-delay: -0.75s; }
+  .y2k-frame-corner.bl { bottom: -10px; left: -10px; animation-delay: -1.5s; }
+  .y2k-frame-corner.br { bottom: -10px; right: -10px; animation-delay: -2.25s; }
+
+  .y2k-caption {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 28px 0 12px;
+    color: #000;
+    letter-spacing: 0.06em;
+  }
+  .y2k-blink {
+    color: #ff0000;
+    animation: y2kBlink 0.8s steps(2) infinite;
+  }
+  @keyframes y2kBlink { 50% { opacity: 0; } }
+
+  .y2k-stats {
+    list-style: none;
+    padding: 14px 18px;
+    margin: 12px auto;
+    max-width: 380px;
+    background: #ffff00;
+    border: 4px outset #00ffff;
+    color: #000;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.9;
+  }
+  .y2k-stats li { color: #8000ff; }
+
+  .y2k-back {
+    text-align: center;
+    margin: 28px 0 8px;
+  }
+  .y2k-link {
+    display: inline-block;
+    padding: 10px 18px;
+    background: #00ffff;
+    color: #000 !important;
+    font-weight: 900;
+    text-decoration: none;
+    border: 4px outset #ff00cc;
+    font-size: 15px;
+  }
+  .y2k-link:hover {
+    background: #ffff00;
+    border-style: inset;
+  }
+
+  .y2k-counter {
+    text-align: center;
+    font-family: "Courier New", monospace;
+    font-size: 13px;
+    color: #000;
+    background: #fff;
+    border: 2px inset #888;
+    padding: 4px;
+    max-width: 220px;
+    margin: 16px auto 0;
+  }
+  .y2k-counter-num {
+    background: #000;
+    color: #0f0;
+    padding: 2px 6px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+</style>
